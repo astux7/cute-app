@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.perfect.cuteapp.R
-import com.perfect.cuteapp.feed.model.Feed
+import com.perfect.cuteapp.feed.model.Language
 import com.perfect.cuteapp.feed.viewmodel.FeedViewModel
 import kotlinx.android.synthetic.main.activity_feed.*
 import kotlinx.coroutines.GlobalScope
@@ -22,9 +22,9 @@ class FeedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_feed)
 
 
-        val feedObserver = Observer<Feed> { feed ->
-            feedTitle.text = feed.title
-            viewAdapter = LanguageAdapter(feed.list)
+        val feedObserver = Observer<List<Language>> { feed ->
+//            feedTitle.text = feed.title
+            viewAdapter = LanguageAdapter(feed)
 
             feedList.apply {
                 adapter = viewAdapter
